@@ -321,6 +321,9 @@ subscriptions model =
 
 main : Program Value Model Msg
 main =
+    let
+        thisHangsForeverInVanillaElm = Debug.log (Debug.toString (String.right 1 "foobar😈" |> String.toList)) (String.right 1 "foobar😈" |> String.toList)
+    in
     Api.application Viewer.decoder
         { init = init
         , onUrlChange = ChangedUrl
